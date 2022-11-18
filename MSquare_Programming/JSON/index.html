@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body></body>
+  <script>
+    const cities = [
+      {
+        name: "Yangon",
+        population: "5 millions",
+        region: "Asia",
+        isCapital: false,
+      },
+      {
+        name: "Myitkyina",
+        population: "200 000",
+        region: "Asia",
+        isCapital: false,
+      },
+    ];
+    const convertedJSONString = JSON.stringify(cities); // serialization
+    localStorage.setItem("city", convertedJSONString);
+
+    const cityFromLocalStorage = localStorage.getItem("city");
+    console.log(cityFromLocalStorage);
+
+    const cityAsJSArray = JSON.parse(cityFromLocalStorage); // deserialization
+    console.log(cityAsJSArray[0]);
+
+    // javascript data type --> json string = serialization
+    // json string --> javascript data type = deserialization
+  </script>
+</html>

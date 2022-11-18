@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        background-color: #343a40;
+        color: white;
+        height: 100vh;
+      }
+
+      .parent {
+        width: 100%;
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        background-color: #28a745;
+        transition: bottom 0.4s ease-in-out;
+      }
+      .toastAlertContainer {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+      }
+      .toastAlertText {
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent"></div>
+
+    <script>
+      const parentTag = document.querySelector(".parent");
+
+      const openToastAlert = () => {
+        parentTag.innerHTML = "";
+        const toastAlertContainerTag = document.createElement("div");
+        toastAlertContainerTag.classList.add("toastAlertContainer");
+
+        const toastAlertTextTag = document.createElement("div");
+        toastAlertTextTag.append(
+          "We use cookies.Your continued use of our site inplies you agree to this.See datils"
+        );
+        toastAlertTextTag.classList.add("toastAlertText");
+
+        const closeButtonTag = document.createElement("div");
+        closeButtonTag.append("close");
+        closeButtonTag.classList.add("btn", "btn-light");
+
+        toastAlertContainerTag.append(toastAlertTextTag, closeButtonTag);
+
+        parentTag.append(toastAlertContainerTag);
+        parentTag.style.bottom = `-${parentTag.offsetHeight}px`;
+        setTimeout(() => {
+          parentTag.style.bottom = "0px";
+        }, 100);
+
+        closeButtonTag.addEventListener("click", () => {
+          localStorage.setItem("accepted", "1");
+          parentTag.style.bottom = `-${parentTag.offsetHeight}px`;
+        });
+      };
+
+      window.addEventListener("load", () => {
+        const accepted = localStorage.getItem("accepted");
+        if (accepted !== "1") {
+          openToastAlert();
+        }
+      });
+    </script>
+  </body>
+</html>

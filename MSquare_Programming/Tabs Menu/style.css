@@ -1,0 +1,33 @@
+body {
+  background-color: #343a40;
+}
+
+.container {
+  margin-top: 100px;
+  margin-left: 200px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  display: inline-block;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+  background-color: #da4353;
+  padding: 10px 20px;
+}
+
+.slider {
+  height: 5px;
+  background-color: #46cfb0;
+  transition: all 0.4s ease-in-out;
+}
+
+.tabsMenu {
+  position: relative;
+}

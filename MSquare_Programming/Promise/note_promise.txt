@@ -1,0 +1,49 @@
+Question: If I define an async function and use await in the body,
+           do I need to use await when calling the function?
+
+  an example:
+
+        async doSomething() {
+          await asyncCall();
+        }
+    Do I need to use await when I call my doSomething function?
+         await doSomething();
+
+    or is this fine?
+         doSomething();
+
+A)  Do you want to wait for doSomething() to finish or not? 
+   Do you want to handle any errors it might throw?
+
+B) Yes, I do want to wait for doSomething() to finish
+
+A)  then you need await. if you want to run it in the background
+   and not wait you don't use await
+
+  Then...you have to await it. That's what await does.
+
+
+In your example, doSomething() returns a Promise.
+For you to return the data from an async function, 
+you need to resolve or reject the promise.
+
+When you do:
+
+await doSomething();
+doSomething() will wait for asyncCall() to be resolved.
+
+When you do:
+
+doSomething();
+doSomething() will resolve asyncCall()in the background.
+
+
+I think your confusion comes from the fact that await is 
+only valid in async functions in javascript. 
+If you want to run await doSomething() outside a async function, 
+just wrap it around an anonymous async function like:
+
+    (async() => {
+      await doSomething()
+    })();
+

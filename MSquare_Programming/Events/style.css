@@ -1,0 +1,8 @@
+.cat {
+  display: block;
+  height: 400px;
+  margin-top: 20px;
+}
+button {
+  cursor: pointer;
+}

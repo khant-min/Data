@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const login = () => {
+        const loginPromise = new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve("Login is finished");
+            //  reject("Errors in login");
+          }, 1000);
+        });
+        return loginPromise;
+      };
+
+      const fetchData = () => {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve("Data has arrived");
+            //  reject("Error in fatch data");
+          }, 1000);
+        });
+      };
+
+      const getUserPhotos = () => {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve("Photos have been fetched");
+            // reject("Error in user photo");
+          }, 2000);
+        });
+      };
+
+      const getUserFriends = () => {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve("Friends have fetched");
+            // reject("Errors in user firends");
+          }, 2000);
+        });
+      };
+
+      const showHomeFeed = data => {
+        console.log("Making home feed using data: ", data);
+      };
+
+      /*
+        try {
+            data....
+        } catch (error) {
+            error...
+        }
+
+         Errors can catch - try catch syntax - or using under syntax...
+      */
+
+      // when normal function is asynced, that function always returns promise object automatically...
+      // Async / await (synthetic suger)
+
+      const buildUI = async () => {
+        const loginData = await login();
+        console.log("First then: ", loginData);
+        const dataFromFetchData = await fetchData();
+        console.log("Second then: ", dataFromFetchData);
+        const userPhotos = await getUserPhotos();
+        console.log("Third then : ", userPhotos);
+        const userFriends = await getUserFriends();
+        console.log("Fourth then: ", userFriends);
+        showHomeFeed(userFriends);
+      };
+      console.log("First");
+      buildUI().catch(error => {
+        console.log("Inside catch: ", error);
+      });
+      console.log("Second");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+import { Invoice } from "./classes/Invoice.js";
+import { Payment } from "./classes/Payment.js";
+let docOne;
+let docTwo;
+docOne = new Invoice("Yoshi", "web work", 250);
+docTwo = new Payment("Mario", "plumbi work", 200);
+let docs = [];
+docs.push(docOne);
+docs.push(docTwo);
+console.log(docs);

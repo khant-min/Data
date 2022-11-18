@@ -1,0 +1,151 @@
+:root {
+  --white: #fff;
+}
+* {
+  background-color: hsl(214, 47%, 23%);
+  margin: 0;
+  padding: 0;
+}
+
+#container {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.header-bar {
+  border: 2px solid gray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  border-radius: 10px;
+}
+.scoreCon {
+  width: 120px;
+  height: 100px;
+  font-size: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+span {
+  font-size: 50px;
+  font-weight: bolder;
+}
+#rps {
+  width: 140px;
+  height: 70px;
+}
+.scoreCon,
+#rps {
+  margin: 4px;
+  border-radius: 4px;
+  padding: 0;
+}
+
+.scoreCon,
+span,
+h5 {
+  background-color: var(--white);
+}
+/* header bar ^|^*/
+
+img[alt="triangle"] {
+  position: absolute;
+  top: 20%;
+  left: 24%;
+}
+
+.choose {
+  width: 600px;
+  height: 500px;
+  position: relative;
+}
+
+#pa-c,
+#sci-c,
+#rock-c {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+#pa-c {
+  background-color: hsl(230, 89%, 62%);
+  position: absolute;
+  left: 20px;
+  top: 10px;
+}
+#sci-c {
+  background-color: hsl(39, 89%, 49%);
+  position: absolute;
+  right: 20px;
+  top: 10px;
+}
+#rock-c {
+  background-color: hsl(349, 71%, 52%);
+  position: absolute;
+  left: 38%;
+  bottom: 0px;
+}
+#paper,
+#scissors,
+#rock {
+  width: 50px;
+  height: 50px;
+  padding: 34px;
+  border-radius: 50%;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.compete {
+  position: relative;
+  display: none;
+  width: 800px;
+  height: 200px;
+}
+
+.chance {
+  position: absolute;
+  top: 70px;
+  left: 40%;
+  width: 160px;
+  height: 40px;
+  background-color: #fff;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.you {
+  position: absolute;
+  top: -30px;
+  left: 20px;
+  color: var(--white);
+}
+.house {
+  position: absolute;
+  top: -30px;
+  right: 20px;
+  color: var(--white);
+}
+.win-or-lose {
+  position: absolute;
+  left: 40%;
+  color: var(--white);
+  font-size: 50px;
+}
+
+/* main body ^|^ */

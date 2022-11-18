@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const login = () => {
+        const loginPromise = new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve("Login is finished...");
+          }, 3000);
+        });
+        return loginPromise;
+      };
+
+      const fetchData = () => {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve("Data has arrived...");
+          }, 5000);
+        });
+      };
+
+      const showHomeFeed = data => {
+        console.log("Making home feed using data: ", data);
+      };
+
+      // Callback hell or Pyramid of doom
+      login()
+        .then(loginData => {
+          console.log(loginData);
+          fetchData()
+            .then(userData => {
+              console.log(userData);
+              showHomeFeed(userData)
+                .then(() => {
+                  console.log("hello");
+                })
+                .catch(() => {
+                  console.log("world");
+                });
+            })
+            .catch(error => {
+              console.log("error: ", error);
+            });
+        })
+        .catch(error => {
+          console.log("error: ", error);
+        });
+
+      // const fetchDataPromise = new Promise((resolve, reject) => {
+      //   setTimeout(() => {
+      //     reject("Rejected");
+      //   }, 3000);
+      // });
+
+      // fetchDataPromise
+      //   .then(data => {
+      //     console.log("Inside then...", data);
+      //   })
+      //   .catch(error => {
+      //     console.log("Inside catch...", error);
+      //   });
+    </script>
+  </body>
+</html>
